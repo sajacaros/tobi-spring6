@@ -1,4 +1,11 @@
 # 토비의 스프링 6 - 이해와 원리
+## tool 설치
+### choco 설치
+  - [choco 사이트 이동](https://chocolatey.org/install)
+  - 스크립트 power shell 관리자 모드에서 실행
+### httpie 설치
+  - choco install httpie
+  - http -v https://open.er-api.com/v6/latest/USD
 ## Week1
 ### PaymentService 개발
 ### 요구사항

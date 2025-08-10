@@ -1,0 +1,14 @@
+# 1주차
+- 프로젝트 및 sdk 확인
+  - ctrl + alt + shift + s
+  - jdk 17 버전으로 세팅
+- 빌드툴 -> Gradle -> JVM 버전 확인
+  - ctrl + alt + s
+  - 실행 속도 개선을 위해 IntelliJ IDEA로 변경
+    - Build and run using : IntelliJ IDEA
+    - Run tests using : IntelliJ IDEA
+  - jdk 17 버전으로 세팅
+- 프로젝트 화면 선택 단축키
+  - alt + 1
+- 클래스 생성
+  - alt + insert
