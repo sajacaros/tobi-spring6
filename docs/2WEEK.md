@@ -14,5 +14,7 @@
 ![](../images/ch02/5_1_구성정보.png)
 ## 6. 캐시
 ![](../images/ch02/6_캐시.png)
-## 7. DIP
-![](../images/ch02/7_DIP.png)
+## 7. 패키지 리팩토링
+![](../images/ch02/7_패키지리팩토링.png)
+## 8. DIP
+![](../images/ch02/8_DIP.png)

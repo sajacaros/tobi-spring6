@@ -1,5 +1,6 @@
 package kr.study.spring6.exrate;
 
+import kr.study.spring6.payment.ExRateProvider;
 import kr.study.spring6.type.Currency;
 
 import java.io.IOException;

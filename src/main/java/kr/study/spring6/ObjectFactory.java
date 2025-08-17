@@ -1,7 +1,7 @@
 package kr.study.spring6;
 
 import kr.study.spring6.exrate.CachedExRateProvider;
-import kr.study.spring6.exrate.ExRateProvider;
+import kr.study.spring6.payment.ExRateProvider;
 import kr.study.spring6.exrate.WebApiExRateProvider;
 import kr.study.spring6.payment.PaymentService;
 import org.springframework.context.annotation.Bean;
