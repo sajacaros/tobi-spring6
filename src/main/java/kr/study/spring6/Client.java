@@ -7,12 +7,12 @@ import java.math.BigDecimal;
 
 public class Client {
     public static void main(String[] args) throws IOException {
+        ObjectFactory objectFactory = new ObjectFactory();
+        PaymentService paymentService = objectFactory.paymentService();
+
         Long orderId = 1L;
         Currency currency = Currency.KRW;
         BigDecimal amount = new BigDecimal("10.3");
-
-//        PaymentService paymentService = new PaymentService(new SimpleExRateProvider());
-        PaymentService paymentService = new PaymentService(new WebApiExRateProvider());
         Payment payment = paymentService.prepare(orderId, currency, amount);
         System.out.println(payment);
     }
