@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public record Payment(
         Long orderId,
         BigDecimal amountInUsd,
-        Currency localCurrency,
+        Currency currency,
         BigDecimal exRate,
         BigDecimal convertedAmount,
         LocalDateTime validUntil
