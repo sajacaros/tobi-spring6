@@ -1,5 +1,6 @@
-package kr.study.spring6;
+package kr.study.spring6.payment;
 
+import kr.study.spring6.exrate.ExRateProvider;
 import kr.study.spring6.type.Currency;
 import lombok.extern.slf4j.Slf4j;
 

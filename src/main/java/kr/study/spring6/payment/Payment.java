@@ -1,4 +1,4 @@
-package kr.study.spring6;
+package kr.study.spring6.payment;
 
 import kr.study.spring6.type.Currency;
 import lombok.Builder;

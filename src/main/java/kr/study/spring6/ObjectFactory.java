@@ -1,10 +1,11 @@
 package kr.study.spring6;
 
-import kr.study.spring6.type.Currency;
+import kr.study.spring6.exrate.CachedExRateProvider;
+import kr.study.spring6.exrate.ExRateProvider;
+import kr.study.spring6.exrate.WebApiExRateProvider;
+import kr.study.spring6.payment.PaymentService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.math.BigDecimal;
 
 @Configuration
 public class ObjectFactory {

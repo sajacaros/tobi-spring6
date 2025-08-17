@@ -1,4 +1,4 @@
-package kr.study.spring6;
+package kr.study.spring6.exrate;
 
 import kr.study.spring6.type.Currency;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package kr.study.spring6;
+package kr.study.spring6.exrate;
 
 import lombok.Builder;
 import lombok.Getter;

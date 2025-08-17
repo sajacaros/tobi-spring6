@@ -1,4 +1,4 @@
-package kr.study.spring6;
+package kr.study.spring6.exrate;
 
 import kr.study.spring6.type.Currency;
 

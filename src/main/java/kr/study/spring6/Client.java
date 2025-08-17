@@ -1,5 +1,7 @@
 package kr.study.spring6;
 
+import kr.study.spring6.payment.Payment;
+import kr.study.spring6.payment.PaymentService;
 import kr.study.spring6.type.Currency;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
