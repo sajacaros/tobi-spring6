@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Builder
 public record Payment(
         Long orderId,
-        BigDecimal amountInUsd,
+        BigDecimal amount,
         Currency currency,
         BigDecimal exRate,
         BigDecimal convertedAmount,

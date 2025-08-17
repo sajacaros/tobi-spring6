@@ -16,10 +16,28 @@ import java.util.stream.Collectors;
 @Slf4j
 public class PaymentService {
     // 주문번호, 외국 통화 종류, 외국 통화 기준 결제 금액
-    private Payment prepare(Long orderId, Currency currency, BigDecimal amount) throws IOException {
+    public Payment prepare(Long orderId, Currency currency, BigDecimal amount) throws IOException {
+        BigDecimal exRate = getExRate(currency);
+
+        //  원화 환산 금액
+        BigDecimal convertedAmount = amount.multiply(exRate);
+        //  원화 환산 금액 유효시간
+        LocalDateTime validUntil = LocalDateTime.now().plusDays(1L);
+
+        return Payment.builder()
+                .orderId(orderId)
+                .amount(convertedAmount)
+                .currency(currency)
+                .exRate(exRate)
+                .convertedAmount(convertedAmount)
+                .validUntil(validUntil)
+                .build();
+    }
+
+    private static BigDecimal getExRate(Currency currency) throws IOException {
         //  적용 환율
         // https://open.er-api.com/v6/latest/{기준통화} 이용
-        URL url = new URL("https://open.er-api.com/v6/latest/"+Currency.KRW.name());
+        URL url = new URL("https://open.er-api.com/v6/latest/"+Currency.USD.name());
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         String response;
         try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
@@ -31,30 +49,6 @@ public class PaymentService {
 
         ObjectMapper mapper = new ObjectMapper();
         ExRateData exRateData = mapper.readValue(response, ExRateData.class);
-        BigDecimal exRate = exRateData.rates().get(currency.name());
-
-        //  원화 환산 금액
-        BigDecimal convertedAmount = amount.multiply(exRate);
-        //  원화 환산 금액 유효시간
-        LocalDateTime validUntil = LocalDateTime.now().plusDays(1L);
-
-        return Payment.builder()
-                .orderId(orderId)
-                .amountInUsd(convertedAmount)
-                .currency(currency)
-                .exRate(exRate)
-                .convertedAmount(convertedAmount)
-                .validUntil(validUntil)
-                .build();
-    }
-
-    public static void main(String[] args) throws IOException {
-        Long orderId = 1L;
-        Currency currency = Currency.USD;
-        BigDecimal amount = new BigDecimal("10.3");
-
-        PaymentService paymentService = new PaymentService();
-        Payment payment = paymentService.prepare(orderId, currency, amount);
-        System.out.println(payment);
+        return exRateData.rates().get(currency.name());
     }
 }
