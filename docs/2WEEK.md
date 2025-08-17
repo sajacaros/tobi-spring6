@@ -9,7 +9,9 @@
 ## 4. ObjectFactory
 ![](../images/ch02/4_ObjectFactory.png)
 ## 5. BeanFactory
-![](../images/ch02/5_BeanFactory.png)
+![](../images/ch02/5_0_BeanFactory.png)
+- 구성 정보를 통해 빈의 의존 관계를 설정
+![](../images/ch02/5_1_구성정보.png)
 ## 6. 캐시
 ![](../images/ch02/6_캐시.png)
 ## 7. DIP
