@@ -10,9 +10,7 @@
 ![](../images/ch02/4_ObjectFactory.png)
 ## 5. BeanFactory
 ![](../images/ch02/5_BeanFactory.png)
-## 6. 구성정보
-![](../images/ch02/6_구성정보.png)
-## 7. 캐시
-![](../images/ch02/7_캐시.png)
-## 8. DIP
-![](../images/ch02/8_DIP.png)
+## 6. 캐시
+![](../images/ch02/6_캐시.png)
+## 7. DIP
+![](../images/ch02/7_DIP.png)
