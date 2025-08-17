@@ -40,7 +40,7 @@ public class PaymentService {
 
         return Payment.builder()
                 .orderId(orderId)
-                .amountInUsd(convertedAmount)
+                .amount(convertedAmount)
                 .currency(currency)
                 .exRate(exRate)
                 .convertedAmount(convertedAmount)
