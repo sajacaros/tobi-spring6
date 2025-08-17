@@ -13,9 +13,9 @@ import java.net.URL;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class WebApiExRatePaymentService extends PaymentService {
+public class WebApiExRateProvider implements ExRateProvider {
     @Override
-    BigDecimal getExRate(Currency currency) throws IOException {
+    public BigDecimal getExRate(Currency currency) throws IOException {
 
         //  적용 환율
         // https://open.er-api.com/v6/latest/{기준통화} 이용

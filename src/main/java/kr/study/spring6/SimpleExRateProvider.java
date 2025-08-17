@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 @Slf4j
-public class SimpleExRatePaymentService extends PaymentService {
+public class SimpleExRateProvider implements ExRateProvider {
     @Override
-    BigDecimal getExRate(Currency currency) throws IOException {
+    public BigDecimal getExRate(Currency currency) throws IOException {
 
         return BigDecimal.valueOf(1300);
 

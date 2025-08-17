@@ -8,10 +8,16 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Slf4j
-public abstract class PaymentService {
+public class PaymentService {
+    private final ExRateProvider exProvider;
+
+    public PaymentService(ExRateProvider exProvider) {
+        this.exProvider = exProvider;
+    }
+
     // 주문번호, 외국 통화 종류, 외국 통화 기준 결제 금액
     public Payment prepare(Long orderId, Currency currency, BigDecimal amount) throws IOException {
-        BigDecimal exRate = getExRate(currency);
+        BigDecimal exRate = exProvider.getExRate(currency);
 
         //  원화 환산 금액
         BigDecimal convertedAmount = amount.multiply(exRate);
@@ -27,6 +33,4 @@ public abstract class PaymentService {
                 .validUntil(validUntil)
                 .build();
     }
-
-    abstract BigDecimal getExRate(Currency currency) throws IOException;
 }

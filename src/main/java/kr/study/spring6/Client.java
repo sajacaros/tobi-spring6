@@ -11,8 +11,8 @@ public class Client {
         Currency currency = Currency.KRW;
         BigDecimal amount = new BigDecimal("10.3");
 
-//        PaymentService paymentService = new WebApiExRatePaymentService();
-        PaymentService paymentService = new SimpleExRatePaymentService();
+//        PaymentService paymentService = new PaymentService(new SimpleExRateProvider());
+        PaymentService paymentService = new PaymentService(new WebApiExRateProvider());
         Payment payment = paymentService.prepare(orderId, currency, amount);
         System.out.println(payment);
     }
