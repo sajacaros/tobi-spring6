@@ -11,8 +11,10 @@ import java.math.BigDecimal;
 public class SimpleExRateProvider implements ExRateProvider {
     @Override
     public BigDecimal getExRate(Currency currency) throws IOException {
+        if (currency.equals(Currency.USD)) {
+            return BigDecimal.valueOf(1300);
+        }
 
-        return BigDecimal.valueOf(1300);
-
+        throw new IllegalArgumentException("Unsupported currency: " + currency);
     }
 }

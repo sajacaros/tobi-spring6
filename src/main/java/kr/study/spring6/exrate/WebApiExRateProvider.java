@@ -20,7 +20,7 @@ public class WebApiExRateProvider implements ExRateProvider {
 
         //  적용 환율
         // https://open.er-api.com/v6/latest/{기준통화} 이용
-        URL url = new URL("https://open.er-api.com/v6/latest/" + Currency.USD.name());
+        URL url = new URL("https://open.er-api.com/v6/latest/" + currency.name());
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         String response;
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
@@ -33,7 +33,7 @@ public class WebApiExRateProvider implements ExRateProvider {
         ObjectMapper mapper = new ObjectMapper();
         ExRateData exRateData = mapper.readValue(response, ExRateData.class);
 
-        return exRateData.rates().get(currency.name());
+        return exRateData.rates().get(Currency.KRW.name());
 
     }
 }

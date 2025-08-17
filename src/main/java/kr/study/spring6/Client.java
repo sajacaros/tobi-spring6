@@ -16,7 +16,7 @@ public class Client {
         PaymentService paymentService = beanFactory.getBean(PaymentService.class);
 
         Long orderId = 1L;
-        Currency currency = Currency.KRW;
+        Currency currency = Currency.USD;
         BigDecimal amount = new BigDecimal("10.3");
 
         Payment payment = paymentService.prepare(orderId, currency, amount);
