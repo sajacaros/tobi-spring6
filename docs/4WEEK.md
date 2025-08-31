@@ -5,3 +5,4 @@
 ## ApiExecutor 분리(4week-4)
 ## ApiExecutor 콜백과 메소드 주입(4week-5)
 ## ExRateExtractor 콜백(4week-6)
+## ApiTemplate 분리(4week-7)
