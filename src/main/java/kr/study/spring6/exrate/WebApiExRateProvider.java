@@ -34,6 +34,5 @@ public class WebApiExRateProvider implements ExRateProvider {
         ExRateData exRateData = mapper.readValue(response, ExRateData.class);
 
         return exRateData.rates().get(Currency.KRW.name());
-
     }
 }
