@@ -6,13 +6,11 @@ import kr.study.spring6.type.Currency;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.concurrent.TimeUnit;
 
 public class Client {
     public static void main(String[] args) throws InterruptedException {
-        BeanFactory beanFactory = new AnnotationConfigApplicationContext(ObjectFactory.class);
+        BeanFactory beanFactory = new AnnotationConfigApplicationContext(PaymentConfig.class);
         PaymentService paymentService = beanFactory.getBean(PaymentService.class);
 
         Long orderId = 1L;
