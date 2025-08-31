@@ -6,5 +6,5 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 public interface ExRateProvider {
-    BigDecimal getExRate(Currency currency) throws IOException;
+    BigDecimal getExRate(Currency currency);
 }

@@ -16,7 +16,7 @@ public class PaymentService {
     }
 
     // 주문번호, 외국 통화 종류, 외국 통화 기준 결제 금액
-    public Payment prepare(Long orderId, Currency currency, BigDecimal amount) throws IOException {
+    public Payment prepare(Long orderId, Currency currency, BigDecimal amount) {
         BigDecimal exRate = exProvider.getExRate(currency);
 
         //  원화 환산 금액

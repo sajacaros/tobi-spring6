@@ -19,7 +19,7 @@ public class CachedExRateProvider implements ExRateProvider {
     }
 
     @Override
-    public BigDecimal getExRate(Currency currency) throws IOException {
+    public BigDecimal getExRate(Currency currency) {
         ExRateWithValidTime exRateWithValidTime = exRateWithValidTimeMap.get(currency);
         if (exRateWithValidTime != null && exRateWithValidTime.isValid()) {
             System.out.println("캐시 ExRate : " + exRateWithValidTime.getExRate());
