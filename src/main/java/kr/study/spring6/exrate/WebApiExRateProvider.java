@@ -20,14 +20,35 @@ public class WebApiExRateProvider implements ExRateProvider {
     public BigDecimal getExRate(Currency currency) {
 
         //  적용 환율
-        // https://open.er-api.com/v6/latest/{기준통화} 이용
         URI uri;
         try {
+            // https://open.er-api.com/v6/latest/{기준통화} 이용
             uri = new URI("https://open.er-api.com/v6/latest/" + currency.name());
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
 
+        String response;
+        try {
+            response = executeApi(uri);
+        } catch(IOException e) {
+            throw new RuntimeException(e);
+        }
+        
+        try {
+            return parseExRate(response);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private BigDecimal parseExRate(String response) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        ExRateData exRateData = mapper.readValue(response, ExRateData.class);
+        return exRateData.rates().get(Currency.KRW.name());
+    }
+
+    private String executeApi(URI uri) throws IOException {
         String response;
         try (BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(
@@ -36,17 +57,8 @@ public class WebApiExRateProvider implements ExRateProvider {
         )) {
             response = bufferedReader.lines().collect(Collectors.joining());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw e;
         }
-
-        ObjectMapper mapper = new ObjectMapper();
-        ExRateData exRateData;
-        try {
-            exRateData = mapper.readValue(response, ExRateData.class);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
-        return exRateData.rates().get(Currency.KRW.name());
+        return response;
     }
 }
