@@ -1,5 +1,7 @@
 package kr.study.spring6.configure;
 
+import jakarta.persistence.EntityManagerFactory;
+import kr.study.spring6.data.OrderRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
@@ -29,5 +31,10 @@ public class DataConfig {
             setShowSql(true);
         }});
         return emf;
+    }
+
+    @Bean
+    public OrderRepository orderRepository(EntityManagerFactory emf) {
+        return new OrderRepository(emf);
     }
 }

@@ -1,8 +1,7 @@
 package kr.study.spring6;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import kr.study.spring6.configure.DataConfig;
+import kr.study.spring6.data.OrderRepository;
 import kr.study.spring6.order.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.BeanFactory;
@@ -14,17 +13,14 @@ import java.math.BigDecimal;
 public class DataClient {
     public static void main(String[] args) throws InterruptedException {
         BeanFactory beanFactory = new AnnotationConfigApplicationContext(DataConfig.class);
-        EntityManagerFactory emf = beanFactory.getBean(EntityManagerFactory.class);
-
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
+        OrderRepository repository = beanFactory.getBean(OrderRepository.class);
 
         Order order = new Order("100", BigDecimal.TEN);
-        log.info("before save order, order : {}", order);
-        em.persist(order);
-        log.info("after save order, order : {}", order);
+        repository.save(order);
 
-        em.getTransaction().commit();
-        em.close();
+        log.info("save order, {}", order);
+
+        Order order2 = new Order("100", BigDecimal.TEN);
+        repository.save(order2); // ConstraintViolationException 발생
     }
 }
