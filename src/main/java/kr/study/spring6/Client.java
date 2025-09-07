@@ -1,5 +1,6 @@
 package kr.study.spring6;
 
+import kr.study.spring6.configure.PaymentConfig;
 import kr.study.spring6.payment.Payment;
 import kr.study.spring6.payment.PaymentService;
 import kr.study.spring6.type.Currency;

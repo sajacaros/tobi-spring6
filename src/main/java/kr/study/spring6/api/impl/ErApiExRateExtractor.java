@@ -1,7 +1,8 @@
-package kr.study.spring6.api;
+package kr.study.spring6.api.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import kr.study.spring6.api.ExRateExtractor;
 import kr.study.spring6.exrate.ExRateData;
 import kr.study.spring6.type.Currency;
 

@@ -1,4 +1,4 @@
-package kr.study.spring6;
+package kr.study.spring6.configure;
 
 import kr.study.spring6.exrate.CachedExRateProvider;
 import kr.study.spring6.exrate.RestTempalteExRateProvider;

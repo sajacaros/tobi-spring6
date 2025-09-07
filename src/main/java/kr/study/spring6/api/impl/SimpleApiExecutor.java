@@ -1,4 +1,6 @@
-package kr.study.spring6.api;
+package kr.study.spring6.api.impl;
+
+import kr.study.spring6.api.ApiExecutor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
